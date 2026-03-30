@@ -32,7 +32,7 @@ export async function POST(req:NextRequest){
         return NextResponse.json({
             message:"Login Successful",
             payload:{...user}
-        },{status:400})
+        },{status:200})
         
     }catch(error){
         if(error instanceof Prisma.PrismaClientKnownRequestError){
