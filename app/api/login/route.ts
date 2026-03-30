@@ -20,7 +20,7 @@ export async function POST(req:NextRequest){
         const user = await prisma.user.findUnique({
             where:{
                 email:bodyParsed.data.email
-            }
+            },
         })
 
         if(!user){
