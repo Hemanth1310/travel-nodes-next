@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
-
+import Header from "@/components/layouts/Header";
+import { getAuthUser } from "@/lib/auth";
+import Sidebar from "@/components/layouts/Sidebar";
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const geistSans = Geist({
@@ -21,33 +22,26 @@ export const metadata: Metadata = {
   description: "Create a memory to share with everyone on your travel diary",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const authUser = await getAuthUser();
+  const user = authUser || null;
+
   return (
     <html
       lang="en"
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
-      <body className="min-h-full flex flex-col">
-        <ClerkProvider>
-          <header className="flex justify-end items-center p-4 gap-4 h-16">
-            <Show when="signed-out">
-              <SignInButton />
-              <SignUpButton>
-                <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
-                  Sign Up
-                </button>
-              </SignUpButton>
-            </Show>
-            <Show when="signed-in">
-              <UserButton />
-            </Show>
-          </header>
-          {children}
-        </ClerkProvider>
+      <body className="min-w-screen min-h-screen md:flex bg-mist-50 ">
+        <Sidebar user={user}/>
+        <Header user={user} />
+        <div className="mt-22 ml-22 md:w-full box-border overflow-y-scroll p-3 bg-red-500 ">
+              {children}
+        </div>
       </body>
     </html>
   );
