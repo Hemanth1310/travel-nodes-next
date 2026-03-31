@@ -34,12 +34,13 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
-      <body className="min-w-screen min-h-screen md:flex bg-mist-50 ">
+      <body suppressHydrationWarning className="min-w-screen min-h-screen md:flex bg-mist-50 ">
         <Sidebar user={user}/>
         <Header user={user} />
-        <div className="mt-22 ml-22 md:w-full box-border overflow-y-scroll p-3 bg-red-500 ">
+        <div className="mt-16 ml-22 md:w-full box-border overflow-y-scroll p-3 bg-red-500 ">
               {children}
         </div>
       </body>
