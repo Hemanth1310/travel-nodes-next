@@ -16,8 +16,8 @@ const Header = ({ user }: HeaderProps) => {
           <div className='w-full h-full'>
             <SearchBar/>
           </div>
-          <div >
-            {false?<Link className='text-lg ' href='/login'>Login
+          <div className='w-15 flex items-center'>
+            {!user?<Link className='text-sm p-2 border rounded-2xl hover:border-blue-500 hover:text-blue-500' href='/login'>Login
             </Link>:<UserDropMenu user={user}/>}
           </div>
         </div>
