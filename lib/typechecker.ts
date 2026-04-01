@@ -16,7 +16,7 @@ export const loginDetailSchema = z.object({
 
 export const registerSchema = z.object({
     email:emailRules,
-    firstName: z.string().min(1,"Name cannot be empty"),
-    lastName: z.string().min(1,"Name cannot be empty"),
+    firstName: z.string().min(1,"First Name cannot be empty"),
+    lastName: z.string().min(1,"Last Name cannot be empty"),
     password: passwordRules,
 })

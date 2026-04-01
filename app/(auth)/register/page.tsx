@@ -40,12 +40,12 @@ const Register = () => {
             </div>
              <div className='flex flex-col gap-2'> 
                 <label>First Name</label>       
-                <input suppressHydrationWarning name='firstName' placeholder='Enter username' className='border rounded-2xl p-2'></input>
+                <input suppressHydrationWarning name='firstName' placeholder='Enter First name' className='border rounded-2xl p-2'></input>
                 {state.error.firstName && <div className='text-sm text-red-600'>{state.error.firstName}</div>}
             </div>
              <div className='flex flex-col gap-2'> 
                 <label>Last Name</label>       
-                <input suppressHydrationWarning name='lastName' placeholder='Enter username' className='border rounded-2xl p-2'></input>
+                <input suppressHydrationWarning name='lastName' placeholder='Enter Last name' className='border rounded-2xl p-2'></input>
                 {state.error.lastName && <div className='text-sm text-red-600'>{state.error.lastName}</div>}
             </div>
             <div className='flex flex-col gap-2'> 
