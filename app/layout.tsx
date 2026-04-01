@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import Header from "@/components/layouts/Header";
 import { getAuthUser } from "@/lib/auth";
 import Sidebar from "@/components/layouts/Sidebar";
+import { Toaster } from "@/components/ui/sonner"
+
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const geistSans = Geist({
@@ -40,9 +42,10 @@ export default async function RootLayout({
       <body suppressHydrationWarning className="min-w-screen min-h-screen md:flex bg-mist-50 ">
         <Sidebar user={user}/>
         <Header user={user} />
-        <div className="mt-16 ml-22 md:w-full box-border overflow-y-scroll p-3 bg-red-500 ">
+        <div className="mt-16 ml-22 md:w-full box-border overflow-y-scroll p-3">
               {children}
         </div>
+        <Toaster/>
       </body>
     </html>
   );
