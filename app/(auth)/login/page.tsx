@@ -35,11 +35,11 @@ const Login = () => {
             </div>
             <div className='flex flex-col gap-2'> 
                 <label>UserName</label>       
-                <input suppressHydrationWarning name='email' placeholder='Enter username' className='border rounded-2xl p-2'></input>
+                <input suppressHydrationWarning name='email' placeholder='Enter username' className='border rounded-2xl p-2 pl-3 '></input>
             </div>
              <div className='flex flex-col gap-2 mb-2'> 
                 <label>Password</label>       
-                <input suppressHydrationWarning type='password' name='password' placeholder='Enter password' className='border rounded-2xl p-2'></input>
+                <input suppressHydrationWarning type='password' name='password' placeholder='Enter password' className='border rounded-2xl p-2 pl-3 '></input>
             </div>
            {state.error && <div className='text-lg text-red-600 text-center'>{state.error}</div>}
             <Button disabled={isPending} variant='outline' type='submit' className='bg-blue-500 text-white transition-colors hover:bg-blue-600 hover:text-white data-[state=open]:bg-blue-700 data-[state=open]:text-white'>
