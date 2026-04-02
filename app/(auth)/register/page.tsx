@@ -40,29 +40,29 @@ const Register = () => {
             </div>
              <div className='flex flex-col gap-2'> 
                 <label>First Name</label>       
-                <input suppressHydrationWarning name='firstName' placeholder='Enter First name' className='border rounded-2xl p-2'></input>
+                <input suppressHydrationWarning name='firstName' placeholder='Enter First name' className='border rounded-2xl p-2 pl-3 '></input>
                 {state.error.firstName && <div className='text-sm text-red-600'>{state.error.firstName}</div>}
             </div>
              <div className='flex flex-col gap-2'> 
                 <label>Last Name</label>       
-                <input suppressHydrationWarning name='lastName' placeholder='Enter Last name' className='border rounded-2xl p-2'></input>
+                <input suppressHydrationWarning name='lastName' placeholder='Enter Last name' className='border rounded-2xl p-2 pl-3 '></input>
                 {state.error.lastName && <div className='text-sm text-red-600'>{state.error.lastName}</div>}
             </div>
             <div className='flex flex-col gap-2'> 
                 <label>Email</label>       
-                <input suppressHydrationWarning name='email' placeholder='Enter username' className='border rounded-2xl p-2'></input>
+                <input suppressHydrationWarning name='email' placeholder='Enter username' className='border rounded-2xl p-2 pl-3 '></input>
                 {state.error.email && <div className='text-sm text-red-600'>{state.error.email}</div>}
             </div>
              <div className='flex flex-col gap-2 mb-2'> 
                 <label>Password</label>       
-                <input suppressHydrationWarning type='password' name='password' placeholder='Enter password' className='border rounded-2xl p-2'></input>
+                <input suppressHydrationWarning type='password' name='password' placeholder='Enter password' className='border rounded-2xl pl-3 p-2'></input>
                 {state.error.password && <div className='text-sm text-red-600'>{state.error.password}</div>}
             </div>
            {state.error.serverError && <div className='text-lg text-red-600 text-center'>{state.error.serverError}</div>}
             <Button disabled={isPending} variant='outline' type='submit' className='bg-blue-500 text-white transition-colors hover:bg-blue-600 hover:text-white data-[state=open]:bg-blue-700 data-[state=open]:text-white'>
                 {isPending ? 'Processing...' : 'Register'}
             </Button>
-            <p className='p-3 text-sm text-center'>Not a user ? please register <Link className='text-blue-500' href='/register'>here</Link> </p>
+            <p className='p-3 text-sm text-center'>Already a user? please login <Link className='text-blue-500' href='/register'>here</Link> </p>
         </form>
     </div>
   )
