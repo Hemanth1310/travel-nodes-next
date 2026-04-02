@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import { prisma } from "./prisma";
 import { Prisma } from "@/generated/prisma/client";
 import jwt, { JsonWebTokenError } from "jsonwebtoken";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/client";
 
 const JWT_secret = process.env.JWT_secret || "123456789";
 
@@ -13,9 +14,8 @@ export async function getAuthUser(){
         return false
     }
 
-    const {userId} = jwt.verify(token,JWT_secret) as {userId:string}
-
     try{
+        const {userId} = jwt.verify(token,JWT_secret) as {userId:string}
         const user = await prisma.user.findUnique({
             where:{
                 id:userId
@@ -36,7 +36,12 @@ export async function getAuthUser(){
         
         return user
     }catch(error){
-        console.log(error)
+        if (error instanceof PrismaClientKnownRequestError) {
+            if (error.code === "P2025") {
+                console.log("User not found." );
+            }
+        }
+        console.log("Session Expired Please login")
         return null
     }
 }
