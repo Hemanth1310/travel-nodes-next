@@ -3,7 +3,7 @@ import RegisterForm from './RegisterForm'
 import { getAuthUser } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 
-const page = async() => {
+const Register = async() => {
     const user = await getAuthUser()
     if(user){
         redirect('/')
@@ -13,4 +13,4 @@ const page = async() => {
   )
 }
 
-export default page
+export default Register
