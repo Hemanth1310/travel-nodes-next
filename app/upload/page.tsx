@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation'
 
 const Upload =async () => {
     const user = await getAuthUser()
-        if(user){
+        if(!user){
             redirect('/')
         }
   return (
