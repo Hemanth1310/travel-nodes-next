@@ -1,5 +1,6 @@
 import { User } from '@/lib/types';
 import { ImageUp, LayoutDashboard, Luggage, Settings } from 'lucide-react';
+import Link from 'next/link';
 import React from 'react'
 type Props = {
     user: User | null;
@@ -24,8 +25,8 @@ const Sidebar = ({user}: Props) => {
           Dashboard
         </p>
       </span>
-      {1===1 && <>
-      <span className="w-full flex items-center justify-start gap-3 p-3 rounded-2xl hover:bg-mist-200">
+      {user && <>
+      <Link href='/upload' className="w-full flex items-center justify-start gap-3 p-3 rounded-2xl hover:bg-mist-200">
         <ImageUp
           className="shrink-0"
           size={32}
@@ -34,7 +35,7 @@ const Sidebar = ({user}: Props) => {
         <p className="whitespace-nowrap hidden opacity-0 translate-x-2 transition-all duration-150 group-hover:block group-hover:opacity-200 group-hover:translate-x-0">
           Upload
         </p>
-      </span>
+      </Link>
       <span className="w-full flex items-center justify-start gap-3 p-3 rounded-2xl hover:bg-mist-200">
         <Settings
           className="shrink-0"
