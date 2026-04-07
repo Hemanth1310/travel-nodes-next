@@ -16,13 +16,40 @@ export default async function Home() {
   }
 
   return (
-    <main className="w-full flex pt-5 sm:pl-10 sm:pr-10">
+    <main className="w-full grid grid-cols-3 pt-5 sm:pl-10 sm:pr-10">
       {nodes.map((node) => (
-        <div key={node.id} className="border">
-          <Image src={node.imageUrl} alt="node" width={320} height={180} />
-          <p>{node.title}</p>
+        <div key={node.id} className="border flex flex-col items-center p-5">
+          <Image className="w-full h-60" src={node.imageUrl} alt="node" width={320} height={180} />
+          <p className="text-lg font-bold">{node.title}</p>
+          <p className="text-sm font-light">@{node.coordinates}</p>
+          <p className="">{node.content}</p>
         </div>
       ))}
+      {nodes.map((node) => (
+        <div key={node.id} className="border flex flex-col items-center p-5">
+          <Image className="w-full h-60" src={node.imageUrl} alt="node" width={320} height={180} />
+          <p className="text-lg font-bold">{node.title}</p>
+          <p className="text-sm font-light">@{node.coordinates}</p>
+          <p className="">{node.content}</p>
+        </div>
+      ))}
+      {nodes.map((node) => (
+        <div key={node.id} className="border flex flex-col items-center p-5">
+          <Image className="w-full h-60" src={node.imageUrl} alt="node" width={320} height={180} />
+          <p className="text-lg font-bold">{node.title}</p>
+          <p className="text-sm font-light">@{node.coordinates}</p>
+          <p className="">{node.content}</p>
+        </div>
+      ))}
+      {nodes.map((node) => (
+        <div key={node.id} className="border flex flex-col items-center p-5">
+          <Image className="w-full h-60" src={node.imageUrl} alt="node" width={320} height={180} />
+          <p className="text-lg font-bold">{node.title}</p>
+          <p className="text-sm font-light">@{node.coordinates}</p>
+          <p className="">{node.content}</p>
+        </div>
+      ))}
+     
     </main>
   );
 }
